@@ -1,0 +1,385 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Task Form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.task-form input,
+.task-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-form input:focus,
+.task-form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 2px 6px rgba(52, 152, 219, 0.2);
+}
+
+.task-form button {
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-form button:hover {
+  background-color: #2980b9;
+}
+
+.task-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.task-item:hover {
+  transform: scale(1.02);
+}
+
+.task-item .task-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.task-item .task-due-date {
+  font-size: 0.9rem;
+  color: #95a5a6;
+  margin-top: 5px;
+}
+
+.task-item .task-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-item .task-actions button {
+  padding: 8px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-item .task-actions button:hover {
+  background-color: #c0392b;
+}
+
+.task-item .task-actions button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Alerts */
+.alert {
+  padding: 10px;
+  background-color: #f39c12;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.alert .alert-title {
+  font-weight: bold;
+}
+
+.alert .alert-message {
+  font-size: 1rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .task-form button {
+    font-size: 1rem;
+  }
+
+  .task-item {
+    flex-direction: column;
+  }
+
+  .task-item .task-actions {
+    margin-top: 10px;
+  }
+}
+/* Style pour les champs de saisie (input et textarea) */
+input,
+textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease; /* Effet de transition pour l'interaction */
+}
+
+input:focus,
+textarea:focus {
+  outline: none; /* Retirer le contour par défaut */
+  border-color: #3498db; /* Couleur de bordure au focus */
+  background-color: #fff; /* Changer la couleur de fond au focus */
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); /* Ombre portée autour de l'input */
+}
+
+/* Style spécifique pour les champs texte (textarea) */
+textarea {
+  resize: vertical; /* Permet à l'utilisateur de redimensionner la zone de texte verticalement */
+  min-height: 120px; /* Hauteur minimale */
+  max-height: 200px; /* Hauteur maximale */
+}
+
+/* Placeholders (texte d'indication) */
+input::placeholder,
+textarea::placeholder {
+  color: #95a5a6; /* Couleur plus claire pour le placeholder */
+  font-style: italic; /* Texte en italique */
+}
+
+/* Enlever l'effet de focus pour les inputs désactivés */
+input:disabled,
+textarea:disabled {
+  background-color: #e0e0e0; /* Couleur de fond grise pour les champs désactivés */
+  border-color: #ccc; /* Couleur de bordure grise */
+  cursor: not-allowed; /* Curseur grisé */
+}
+
+/* Style pour les inputs avec des erreurs */
+input.error,
+textarea.error {
+  border-color: #e74c3c; /* Bordure rouge en cas d'erreur */
+  background-color: #f9d6d5; /* Fond légèrement rouge clair */
+}
+
+input.error:focus,
+textarea.error:focus {
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.5); /* Ombre rouge autour de l'input en cas d'erreur */
+}
+
+/* Style pour les boutons qui sont associés aux inputs */
+button {
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9; /* Couleur de fond du bouton au survol */
+}
+
+button:disabled {
+  background-color: #ccc; /* Couleur de fond grise pour les boutons désactivés */
+  cursor: not-allowed; /* Curseur grisé */
+}
+
+/* Style général de la liste des tâches */
+.task-list {
+  margin: 20px 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.task-list h2 {
+  font-size: 1.5rem;
+  color: #3498db; /* Couleur bleue pour les titres de catégories */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.task-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Légère ombre portée pour un effet de profondeur */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-list li:hover {
+  transform: translateY(-3px); /* Effet de survol pour donner de la dynamique */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.task-list li span {
+  font-size: 1rem;
+  color: #555; /* Couleur plus foncée pour le texte des tâches */
+}
+
+.task-list li button {
+  padding: 6px 12px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-list li button:hover {
+  background-color: #c0392b; /* Changement de couleur au survol pour le bouton supprimer */
+}
+
+.task-list li button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); /* Légère ombre pour le bouton au focus */
+}
+
+.task-list li .due-date {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* Style des tâches sans échéance ou avec une échéance proche */
+.task-list li.due-soon {
+  background-color: #fff3cd;
+  border-left: 4px solid #f39c12; /* Barre jaune indiquant une tâche imminente */
+}
+
+.task-list li.due-soon span {
+  font-weight: bold;
+}
+
+/* Tâches déjà terminées */
+.task-list li.completed {
+  background-color: #d5f5e3;
+  text-decoration: line-through;
+}
+
+/* Responsive: Assurez-vous que les éléments sont bien disposés sur les petits écrans */
+@media (max-width: 768px) {
+  .task-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-list li button {
+    margin-top: 10px;
+  }
+}
+
+/* Style pour le formulaire */
+
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Style du bouton d'ajout */
+.task-form button {
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-form button:hover {
+  background-color: #2980b9;
+}
